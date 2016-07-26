@@ -12,9 +12,9 @@ struct MyMeme{
     var strTop: String
     var strBottom: String
     var imageMeme: UIImage
-    var memedImage: MemeImage
+    var memedImage: UIImage
     
-    init(strTop: String, strBottom: String, imageMeme: UIImage, memedImage: MemeImage){
+    init(strTop: String, strBottom: String, imageMeme: UIImage, memedImage: UIImage){
         self.strTop = strTop
         self.strBottom = strBottom
         self.imageMeme = imageMeme
