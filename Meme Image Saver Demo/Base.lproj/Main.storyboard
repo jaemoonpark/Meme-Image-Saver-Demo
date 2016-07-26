@@ -68,7 +68,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="generateButton" destination="E71-rl-kiY" id="mGA-EN-WYE"/>
                         <outlet property="myImage" destination="2jZ-nu-vzK" id="wBH-ul-3Vv"/>
+                        <outlet property="shareButton" destination="N1L-0I-F9B" id="a93-hE-VrP"/>
                         <outlet property="txtFieldBottom" destination="apg-3R-mSD" id="T2G-Dq-GN2"/>
                         <outlet property="txtFieldTop" destination="2vP-Xv-aQ5" id="tE8-f4-oox"/>
                     </connections>

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtFieldBottom: UITextField!
     @IBOutlet weak var myImage: UIImageView!
     var createdMeme: MyMeme!
+    @IBOutlet weak var generateButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +30,23 @@ class ViewController: UIViewController {
     //source:Udacity
     @IBAction func saveMeme()
     {
-        // Render view to an image
+        //hide unwanted stuff
+        
+        generateButton.hidden = true
+        shareButton.hidden = true
         
         //====start: code heavily based off of generatedMemeImage function provided by Udacity====/
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawViewHierarchyInRect(self.view.frame,
                                      afterScreenUpdates: true)
-        let memedImage : UIImage =
-            UIGraphicsGetImageFromCurrentImageContext()
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        generateButton.hidden = false
+        shareButton.hidden = false
         //====end====/
         
 
         createdMeme = MyMeme.init(strTop: txtFieldTop.text!, strBottom: txtFieldBottom.text!, imageMeme: myImage.image!, memedImage: memedImage)
-        
     }
 
 }
