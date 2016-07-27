@@ -36,17 +36,22 @@ class ViewController: UIViewController {
         shareButton.hidden = true
         
         //====start: code heavily based off of generatedMemeImage function provided by Udacity====/
-        UIGraphicsBeginImageContext(myImage.frame.size)
-        view.drawViewHierarchyInRect(myImage.frame,
-                                     afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(myImage.bounds.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        view.drawViewHierarchyInRect(myImage.bounds, afterScreenUpdates: true)
+        
+        
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         generateButton.hidden = false
         shareButton.hidden = false
         //====end====/
         
-
         createdMeme = MyMeme.init(strTop: txtFieldTop.text!, strBottom: txtFieldBottom.text!, imageMeme: myImage.image!, memedImage: memedImage)
+        
+        let activityView = UIActivityViewController.init(activityItems: [memedImage], applicationActivities: nil)
+        
+        self.presentViewController(activityView, animated: true, completion: nil)
     }
 
 }
