@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1L-0I-F9B">
-                                <rect key="frame" x="485" y="476" width="40" height="30"/>
-                                <state key="normal" title="Share"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E71-rl-kiY">
                                 <rect key="frame" x="75" y="476" width="64" height="30"/>
                                 <state key="normal" title="Generate"/>
@@ -48,9 +44,7 @@
                             <constraint firstItem="apg-3R-mSD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="55" id="0ae-pU-B7T"/>
                             <constraint firstItem="2vP-Xv-aQ5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="55" id="8tt-pd-IHL"/>
                             <constraint firstItem="E71-rl-kiY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="55" id="Bx1-Qm-KmI"/>
-                            <constraint firstItem="N1L-0I-F9B" firstAttribute="top" secondItem="2jZ-nu-vzK" secondAttribute="bottom" constant="8" id="CF6-ka-wF8"/>
                             <constraint firstItem="E71-rl-kiY" firstAttribute="top" secondItem="2jZ-nu-vzK" secondAttribute="bottom" constant="8" id="Kth-7q-IaA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="N1L-0I-F9B" secondAttribute="trailing" constant="55" id="UyA-oq-Srg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="apg-3R-mSD" secondAttribute="bottom" constant="132" id="UyI-5Z-JS4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2vP-Xv-aQ5" secondAttribute="trailing" constant="55" id="Xvf-W1-ILB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2jZ-nu-vzK" secondAttribute="bottom" constant="132" id="Z6q-ty-Dh1"/>
@@ -64,7 +58,6 @@
                     <connections>
                         <outlet property="generateButton" destination="E71-rl-kiY" id="mGA-EN-WYE"/>
                         <outlet property="myImage" destination="2jZ-nu-vzK" id="wBH-ul-3Vv"/>
-                        <outlet property="shareButton" destination="N1L-0I-F9B" id="a93-hE-VrP"/>
                         <outlet property="txtFieldBottom" destination="apg-3R-mSD" id="T2G-Dq-GN2"/>
                         <outlet property="txtFieldTop" destination="2vP-Xv-aQ5" id="tE8-f4-oox"/>
                     </connections>
