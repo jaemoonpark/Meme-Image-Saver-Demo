@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txtFieldTop: UITextField!
     @IBOutlet weak var txtFieldBottom: UITextField!
@@ -19,6 +19,8 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        txtFieldTop.delegate = self
+        txtFieldBottom.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -68,6 +70,11 @@ class ViewController: UIViewController{
         //passing meme into activity view
         let activityView = UIActivityViewController.init(activityItems: [memedImage], applicationActivities: nil)
         self.presentViewController(activityView, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
 }
