@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
 
     @IBOutlet weak var txtFieldTop: UITextField!
     @IBOutlet weak var txtFieldBottom: UITextField!
@@ -30,27 +30,43 @@ class ViewController: UIViewController {
     //source:Udacity
     @IBAction func saveMeme()
     {
-        //hide unwanted stuff
+    
+        //storing original bounds
+        let tempImageBound = myImage.bounds
+        let tempTopTxtBound = txtFieldTop.bounds
+        let tempBtmTxtBound = txtFieldBottom.bounds
         
-        generateButton.hidden = true
-        shareButton.hidden = true
+        //setting up bounds for meme capture
+        let rectImage = CGRectMake(0, 0, myImage.image!.size.width, myImage.image!.size.height)
+        let rectTopText = CGRectMake(0.0, 0.0, myImage.image!.size.width, txtFieldTop.bounds.size.height)
+        let rectBotText = CGRectMake(0.0, rectImage.size.height - txtFieldBottom.bounds.size.height, myImage.image!.size.width, txtFieldBottom.bounds.size.height)
         
-        //====start: code heavily based off of generatedMemeImage function provided by Udacity====/
-        UIGraphicsBeginImageContext(myImage.bounds.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        view.drawViewHierarchyInRect(myImage.bounds, afterScreenUpdates: true)
+        //readjusting image bounds to scale objects properly
+        myImage.bounds = rectImage
+        txtFieldTop.bounds = rectTopText
+        txtFieldBottom.bounds = rectBotText
         
+        //drawing all three images
+        UIGraphicsBeginImageContextWithOptions(myImage.frame.size, false, 0.0)
+        myImage.drawViewHierarchyInRect(rectImage, afterScreenUpdates: true)
+        txtFieldTop.drawViewHierarchyInRect(rectTopText, afterScreenUpdates: true)
+        txtFieldBottom.drawViewHierarchyInRect(rectBotText, afterScreenUpdates: true)
         
+        //saving created meme image
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
         UIGraphicsEndImageContext()
-        generateButton.hidden = false
-        shareButton.hidden = false
-        //====end====/
         
-        createdMeme = MyMeme.init(strTop: txtFieldTop.text!, strBottom: txtFieldBottom.text!, imageMeme: myImage.image!, memedImage: memedImage)
+        //restoring original bounds
+        myImage.bounds = tempImageBound
+        txtFieldTop.bounds = tempTopTxtBound
+        txtFieldBottom.bounds = tempBtmTxtBound
         
+        
+        
+        
+        //passing meme into activity view
         let activityView = UIActivityViewController.init(activityItems: [memedImage], applicationActivities: nil)
-        
         self.presentViewController(activityView, animated: true, completion: nil)
     }
 
